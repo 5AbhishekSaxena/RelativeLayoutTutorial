@@ -4,8 +4,8 @@
 
 This is a small app which has a sample code for relative layout. It covers code example for the following topic
 - Align Views
-- Move views in center (parent, horizontal or vertical)
 - Place views with respect to other views
+- Move views in center (parent, horizontal or vertical)
 
 ### Integrated Development Environment(IDE) Setup
 In order to compile the project easily you'll need an IDE. I used Android Studio by Google.
