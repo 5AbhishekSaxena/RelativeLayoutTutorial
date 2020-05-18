@@ -1,70 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login Page"
-        android:layout_above="@id/nameEditText"
-        android:layout_marginBottom="100dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="50sp" />
+    <data>
+        <variable
+            name="vm"
+            type="in.abhisheksaxena.relativelayouttutorial.ui.AuthViewModel"/>
+    </data>
 
-
-    <TextView
-        android:layout_marginStart="40dp"
-        android:layout_alignTop="@id/nameEditText"
-        android:layout_alignBottom="@id/nameEditText"
-        android:id="@+id/nameTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Name" />
-
-    <EditText
-        android:layout_centerInParent="true"
-        android:id="@+id/nameEditText"
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_alignStart="@id/passwordEditText"
-        android:layout_alignEnd="@id/passwordEditText"
-        android:layout_toEndOf="@id/nameTextView"/>
+        android:layout_height="match_parent"
+        tools:context=".ui.MainActivity">
 
-    <TextView
-        android:id="@+id/passwordTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password"
-        android:layout_marginStart="40dp"
-        android:gravity="center"
-        android:layout_alignTop="@id/passwordEditText"
-        android:layout_alignBottom="@id/passwordEditText"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/nameEditText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="100dp"
+            android:text="Login Page"
+            android:textSize="50sp" />
 
-    <EditText
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/nameEditText"
-        android:layout_toEndOf="@id/passwordTextView"
-        android:id="@+id/passwordEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
 
-    <Button
-        android:id="@+id/submitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        android:layout_below="@id/passwordEditText"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"/>
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/nameEditText"
+            android:layout_alignBottom="@id/nameEditText"
+            android:layout_marginStart="40dp"
+            android:gravity="center"
+            android:text="Email" />
 
-</RelativeLayout>
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/passwordEditText"
+            android:layout_alignEnd="@id/passwordEditText"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@={vm.email}"
+            android:layout_toEndOf="@id/nameTextView" />
+
+        <TextView
+            android:id="@+id/passwordTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/passwordEditText"
+            android:layout_alignBottom="@id/passwordEditText"
+            android:layout_marginStart="40dp"
+            android:gravity="center"
+            android:text="Password" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameEditText"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:text="@={vm.password}"
+            android:layout_toEndOf="@id/passwordTextView" />
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/passwordEditText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:onClick="@{vm::onLoginButtonClick}"
+            android:text="Log in" />
+
+    </RelativeLayout>
+</layout>
